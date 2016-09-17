@@ -1,0 +1,22 @@
+1) Criar Banco
+use agenda
+
+2) Inserino
+var contato = [{ "nome" : "Contato 1", "telefone" : "Telefone 1" },{ "nome" : "Contato 2", "telefone" : "Telefone 2" },{ "nome" : "Contato 3", "telefone" : "Telefone 3" },{ "nome" : "Contato 4", "telefone" : "Telefone 4" },{ "nome" : "Contato 5", "telefone" : "Telefone 5" }]
+db.contatos.insert(contato)
+
+3) Buscando
+var criterio = { "nome" : "Contato 2" }
+db.contatos.find(criterio)
+
+4) Alterando
+var criterio = { "nome" : "Contato 3" }
+
+var contato = { "nome" : "Contato 10", "telefone" : "Telefone 10" }
+
+db.contatos.update(criterio, contato)
+
+
+5) Remover
+
+db.contatos.remove({ "nome" : "Contato 5" })
