@@ -1,0 +1,58 @@
+[33mcommit e3682bcf5cf6daffe2601f2782a2db9aa3835601[m
+Author: eduardovismara <eduardovismara@hotmail.com>
+Date:   Sat Sep 17 15:05:21 2016 -0400
+
+    4 commit
+
+[1mdiff --git a/e-commerce/public/js/controllers/produtoController.js b/e-commerce/public/js/controllers/produtoController.js[m
+[1mindex 379c3f7..ab7d31d 100644[m
+[1m--- a/e-commerce/public/js/controllers/produtoController.js[m
+[1m+++ b/e-commerce/public/js/controllers/produtoController.js[m
+[36m@@ -1,6 +1,6 @@[m
+ angular.module('produtos')[m
+[31m-  .controller('produtoController', ['$scope', '$http', '$routeParams',[m
+[31m-    function ($scope, $http, $routeParams) {      [m
+[32m+[m[32m  .controller('produtoController', ['$scope', '$http', '$routeParams', '$location',[m
+[32m+[m[32m    function ($scope, $http, $routeParams, $location) {[m[41m      [m
+       $scope.produto = {};[m
+       $scope.mensagem = '';[m
+ [m
+[36m@@ -30,11 +30,11 @@[m [mangular.module('produtos')[m
+             $http.post('/api/produtos', $scope.produto)[m
+               .success(function () {[m
+                 $scope.produto = {};[m
+[31m-                $scope.mensagem = 'Foto cadastrada com sucesso';[m
+[32m+[m[32m                $scope.mensagem = 'Produto cadastrada com sucesso';[m
+               })[m
+               .error(function (erro) {[m
+                 console.log(erro);[m
+[31m-                $scope.mensagem = 'Não foi possível cadastrar a foto';[m
+[32m+[m[32m                $scope.mensagem = 'Não foi possível cadastrar o produto';[m
+               }[m
+             );[m
+           }[m
+[1mdiff --git a/e-commerce/public/partials/formulario.html b/e-commerce/public/partials/formulario.html[m
+[1mindex 8478cf4..6a0924c 100644[m
+[1m--- a/e-commerce/public/partials/formulario.html[m
+[1m+++ b/e-commerce/public/partials/formulario.html[m
+[36m@@ -23,9 +23,9 @@[m
+                 </div>[m
+ [m
+                 <div class="form-group">[m
+[31m-                    <label>Ativo</label>[m
+[32m+[m[32m                    <label>Ativo S/N</label>[m
+                     <input type="text" name="ativo"[m
+[31m-                     ng-model="produto.ativo" class="form-control" required>[m
+[32m+[m[32m                     ng-model="produto.ativo" class="form-control" pattern="S|N" maxlength="1" required>[m
+                      <span class="form-control alert-danger"[m
+                      ng-show = "formulario.$submitted && formulario.ativo.$error.required"> Situação ativo S/N obrigatório </span>[m
+                 </div>[m
+[36m@@ -33,7 +33,7 @@[m
+                 <button type="submit" class="btn btn-primary" [m
+                 ng-disabled="formulario.$invalid">Salvar</button>[m
+ [m
+[31m-                <a href="#" class="btn btn-primary">Voltar</a>[m
+[32m+[m[32m                <a href="#/admin" class="btn btn-primary">Voltar</a>[m
+                 <hr>[m
+             </div>[m
+         </form>[m
