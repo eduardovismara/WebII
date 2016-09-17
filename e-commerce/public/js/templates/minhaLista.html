@@ -1,0 +1,29 @@
+ <div>
+     
+ </div>
+ <table class="table table-striped" ng-controller="contatosController">
+            <thead>
+                <tr>
+                    <td>
+                        <h1 class="fa fa-user"></h1>
+                        <a ng-click="sort('nome')">Nome</a>
+                    </td>
+                    <td>
+                        <h1 class="fa fa-envelope"></h1>
+                        <a ng-click="sort('preco')">Preço</a></td>
+                    <td>
+                        <h1 class="fa fa-thumbs-o-up"></h1>
+                        <a ng-click="sort('ativo')">Ativo</a></td>
+                </tr>
+            </thead>
+
+            <tbody class="table-striped">
+                <tr ng-repeat="contato in elementos | 
+                     orderBy:sortValue:order
+                     | filter: filtro">
+                    <td>{{contato.nome }}</td>
+                    <td>{{contato.preco}}</td>
+                    <td>{{contato.ativo}}</td>
+                </tr>
+            </tbody>
+        </table>
