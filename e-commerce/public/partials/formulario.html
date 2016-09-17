@@ -23,9 +23,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Ativo</label>
+                    <label>Ativo S/N</label>
                     <input type="text" name="ativo"
-                     ng-model="produto.ativo" class="form-control" required>
+                     ng-model="produto.ativo" class="form-control" pattern="S|N" maxlength="1" required>
                      <span class="form-control alert-danger"
                      ng-show = "formulario.$submitted && formulario.ativo.$error.required"> Situação ativo S/N obrigatório </span>
                 </div>
@@ -33,7 +33,7 @@
                 <button type="submit" class="btn btn-primary" 
                 ng-disabled="formulario.$invalid">Salvar</button>
 
-                <a href="#" class="btn btn-primary">Voltar</a>
+                <a href="#/admin" class="btn btn-primary">Voltar</a>
                 <hr>
             </div>
         </form>

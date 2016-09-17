@@ -1,6 +1,6 @@
 angular.module('produtos')
-  .controller('produtoController', ['$scope', '$http', '$routeParams',
-    function ($scope, $http, $routeParams) {      
+  .controller('produtoController', ['$scope', '$http', '$routeParams', '$location',
+    function ($scope, $http, $routeParams, $location) {      
       $scope.produto = {};
       $scope.mensagem = '';
 
@@ -30,11 +30,11 @@ angular.module('produtos')
             $http.post('/api/produtos', $scope.produto)
               .success(function () {
                 $scope.produto = {};
-                $scope.mensagem = 'Foto cadastrada com sucesso';
+                $scope.mensagem = 'Produto cadastrada com sucesso';
               })
               .error(function (erro) {
                 console.log(erro);
-                $scope.mensagem = 'Não foi possível cadastrar a foto';
+                $scope.mensagem = 'Não foi possível cadastrar o produto';
               }
             );
           }
